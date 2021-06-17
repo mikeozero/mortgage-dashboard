@@ -1,0 +1,182 @@
+body{
+	margin: 0;
+	background: white;
+}
+#title{
+	position: absolute;
+	width: 40%;
+	height: 10%;
+	top: 0;
+	left: 30%;
+	color: gray;
+	font-size: 1.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#tim{
+	position: absolute;
+	width: 25%;
+	height: 10%;
+	top: 0;
+	right: 1%;
+}
+#tim h2{
+	position: absolute;
+	color: darkgray;
+	font-size: 0.9rem;
+	font-style: italic;
+	bottom: 0;
+	right: 45%;
+}
+
+#l1{
+	position: absolute;
+	width: 33%;
+	height: 35%;
+	top: 15%;
+	left: 15%;
+	background-color: white;
+	box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+}
+
+#r1{
+	position: absolute;
+	width: 35%;
+	height: 35%;
+	top: 15%;
+	left: 50%;
+	background-color: white;
+	box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+}
+#c1{
+	position: absolute;
+	width: 70%;
+	height: 43%;
+	top: 55%;
+	left: 15%;
+	background-color: white;
+	box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+}
+/* 1.超小屏幕下 小于768 布局容器的宽度为 100% */
+@media screen and (max-width: 767px) {
+	#l1{
+		position: absolute;
+		width: 86%;
+		height: 25%;
+		top: 15%;
+		left: 7%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+	#r1{
+		position: absolute;
+		width: 86%;
+		height: 25%;
+		top: 45%;
+		left: 7%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+	#c1{
+		position: absolute;
+		width: 86%;
+		height: 25%;
+		top: 75%;
+		left: 7%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+}
+/* 2.小屏幕下 大于等于768 布局容器改为 750px */
+@media screen and (min-width: 768px) {
+	#l1{
+		position: absolute;
+		width: 70%;
+		height: 36%;
+		top: 15%;
+		left: 15%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+	#r1{
+		position: absolute;
+		width: 70%;
+		height: 36%;
+		top: 55%;
+		left: 15%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+	#c1{
+		position: absolute;
+		width: 70%;
+		height: 36%;
+		top: 95%;
+		left: 15%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+}
+/* 3.中等屏幕下 大于等于992px 布局容器修改为970px */
+@media screen and (min-width: 992px) {
+	#l1{
+		position: absolute;
+		width: 36%;
+		height: 35%;
+		top: 15%;
+		left: 12%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+
+	#r1{
+		position: absolute;
+		width: 36%;
+		height: 35%;
+		top: 15%;
+		left: 52%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+	#c1{
+		position: absolute;
+		width: 76%;
+		height: 43%;
+		top: 55%;
+		left: 12%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+}
+/* 4.大屏幕下 大于等于1200 布局容器修改为 1170 */
+@media screen and (min-width: 1200px) {
+	#l1{
+		position: absolute;
+		width: 30%;
+		height: 35%;
+		top: 15%;
+		left: 18%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+
+	#r1{
+		position: absolute;
+		width: 30%;
+		height: 35%;
+		top: 15%;
+		left: 52%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+	#c1{
+		position: absolute;
+		width: 64%;
+		height: 43%;
+		top: 55%;
+		left: 18%;
+		background-color: white;
+		box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightgray;
+	}
+}
