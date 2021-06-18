@@ -1,5 +1,5 @@
 # mortgage-dashboard
-**Using python+echarts to create a dashboard**  
+**Using echarts+python+mysql to create a dashboard**  
 **(cell phone, ipad and web browser friendly)**
 ![image](https://user-images.githubusercontent.com/53555169/122324619-1a64f500-cef7-11eb-8af6-e1a159b51f9a.png)
 
