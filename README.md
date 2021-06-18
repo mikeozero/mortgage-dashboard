@@ -22,3 +22,5 @@
 ![image](https://user-images.githubusercontent.com/53555169/122331722-45554600-cf03-11eb-8393-82c593c14e70.png)
 
 ![image](https://user-images.githubusercontent.com/53555169/122331676-34a4d000-cf03-11eb-89e2-cac8bdca3961.png)
+
+keywords: `echarts`, `javascript`, `jquery`, `ajax`, `html`, `css`, `python`, `pandas`, `flask`, `sqlalchemy`, `mysql`, `postgresql`
