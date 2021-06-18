@@ -23,4 +23,4 @@
 
 ![image](https://user-images.githubusercontent.com/53555169/122331676-34a4d000-cf03-11eb-89e2-cac8bdca3961.png)
 
-keywords: `echarts`, `javascript`, `jquery`, `ajax`, `html`, `css`, `python`, `pandas`, `flask`, `sqlalchemy`, `mysql`, `postgresql`
+**keywords:** `echarts`, `javascript`, `jquery`, `ajax`, `html`, `css`, `python`, `pandas`, `flask`, `sqlalchemy`, `mysql`, `postgresql`
