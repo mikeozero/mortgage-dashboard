@@ -1,5 +1,5 @@
 # mortgage-dashboard
-**Using `echarts`+`python`+`mysql` to create a dashboard (resposive web design)**  
+**Automation dashboard using `echarts`+`python`+`mysql` (resposive web design)**  
 ![image](https://user-images.githubusercontent.com/53555169/122324619-1a64f500-cef7-11eb-8af6-e1a159b51f9a.png)
 
 **The source data ('mortgage.csv' and 'Data_Product Hierarchy.xlsx') in sources/**
