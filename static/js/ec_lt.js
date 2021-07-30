@@ -1,8 +1,8 @@
-var ec_l1 = echarts.init(document.getElementById("l1"));
+var ec_lt = echarts.init(document.getElementById("lt"));
 
-var option_l1 = {
+var option_lt = {
         title: {
-            text: 'Residential Mortgages Reportable Delinquency',
+            text: 'Credit Card Delinquency',
             textStyle: {
                 color: 'gray',
                 fontSize: 15
@@ -116,11 +116,10 @@ var option_l1 = {
         ]
     };
 
-ec_l1.setOption(option_l1);
+ec_lt.setOption(option_lt);
 
-window.addEventListener("resize",function(){
-	   ec_l1.resize();
-});
-window.addEventListener("click",function(){
-	   ec_l1.resize();
+['resize','click'].forEach(function (item) {
+    window.addEventListener(item,function(){
+	   ec_lt.resize();
+    });
 });

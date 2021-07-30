@@ -169,6 +169,8 @@ var option_r1 = {
 	  
 ec_r1.setOption(option_r1);
 
-window.addEventListener("resize",function(){
+['resize','click'].forEach(function (item) {
+    window.addEventListener(item,function(){
 	   ec_r1.resize();
+    });
 });

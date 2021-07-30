@@ -1,8 +1,8 @@
-var ec_l1 = echarts.init(document.getElementById("l1"));
+var ec_rt = echarts.init(document.getElementById("rt"));
 
-var option_l1 = {
+var option_rt = {
         title: {
-            text: 'Residential Mortgages Reportable Delinquency',
+            text: 'Total Limit, New Credit Card Bookings',
             textStyle: {
                 color: 'gray',
                 fontSize: 15
@@ -13,7 +13,7 @@ var option_l1 = {
             axisPointer: {
                 type: 'shadow'
             },
-            formatter: '{b0}<br/>{a0}: {c0}%<br />{a1}: {c1}%<br />{a2}: {c2}%'
+            formatter: '{b0}<br/>{a0}: ${c0}<br />{a1}: ${c1}'
         },
         grid: {
       		top: '15%',
@@ -25,7 +25,7 @@ var option_l1 = {
         legend: {
             x: 'left',
 			y: 'bottom',
-            data: ['>90 dpd', '31-90 dpd', 'Reportable Delinquency'],
+            data: ['Visa Total Limit', 'Amex Total Limit'],
             left: 'center',
 			textStyle: {
 				color: 'gray'
@@ -49,7 +49,7 @@ var option_l1 = {
         yAxis: {
             type: 'value',
             // scale: true,
-            name: '% Delinquency',
+            name: 'Millions',
             nameLocation: 'middle',
             nameGap: 35,
             axisLine: {
@@ -62,7 +62,7 @@ var option_l1 = {
 				show: true,
 				color: 'gray',
 				fontSize: 12,
-				formatter: '{value}%'
+				formatter: '${value}'
 			},
 			splitLine: {
 				show: false,
@@ -75,12 +75,12 @@ var option_l1 = {
         },
         series: [
             {
-                name: '>90 dpd',
+                name: 'Visa Total Limit',
                 type: 'bar',
                 stack: 'total',
                 label: {
                     show: true,
-                    formatter: '{c}%'
+                    formatter: '${c}'
                 },
                 emphasis: {
                     focus: 'series'
@@ -89,38 +89,26 @@ var option_l1 = {
                 data: [2.7, 6.0, 5.0, 3.0, 8.0]
             },
             {
-                name: '31-90 dpd',
+                name: 'Amex Total Limit',
                 type: 'bar',
                 stack: 'total',
                 label: {
                     show: true,
-                    formatter: '{c}%'
+                    formatter: '${c}'
                 },
                 emphasis: {
                     focus: 'series'
                 },
                 color: '#CD5C5C',
                 data: [7.3, 7.0, 10.0, 5.0, 4.0]
-            },
-            {
-                name: 'Reportable Delinquency',
-                type: 'line',
-                label: {
-                    show: true,
-                    formatter: '{c}%'
-                },
-                symbol: 'circle',
-                color: 'black',
-                data: [10.0, 13.0, 15.0, 8.0, 12.0]
             }
         ]
     };
 
-ec_l1.setOption(option_l1);
+ec_rt.setOption(option_rt);
 
-window.addEventListener("resize",function(){
-	   ec_l1.resize();
-});
-window.addEventListener("click",function(){
-	   ec_l1.resize();
+['resize','click'].forEach(function (item) {
+    window.addEventListener(item,function(){
+	   ec_rt.resize();
+    });
 });
