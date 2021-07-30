@@ -13,7 +13,7 @@
 **3. postgresql.sql:** DDL statements, create tables 'Acct_perf', 'DATA_PRODUCT_MAPPING_LKP' and view 'VW_RESD_MTGE_OA_RISK' in postgresql. postgresql is case sensitive, create table "Test"... and create table Test... are different. In SqlAlchemy, any table name or column name including uppercase letters will be added "" autometicly.
 
 **4. models.py:** ETL source data into database (mysql | postgresql).  
-![image](https://user-images.githubusercontent.com/53555169/122328828-4cc62080-cefe-11eb-836c-7e41ec7e7e4c.png)
+![image](https://user-images.githubusercontent.com/53555169/127710338-2bfb0880-aa7a-4a6c-8a16-9a04e1cb90a0.png)
 
 **5. readdatabase.py:** read and process data from view 'VW_RESD_MTGE_OA_RISK'. to check the result, just modify the app.py file as below:  
 ![image](https://user-images.githubusercontent.com/53555169/122329156-e8579100-cefe-11eb-9b58-b4a32e26ff53.png)
