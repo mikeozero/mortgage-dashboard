@@ -6,6 +6,7 @@ from datetime import datetime,timedelta
 # change file paths:
 prdPath = 'sources/Data_Product Hierarchy.xlsx'
 acctPath = 'sources/mortgage.csv'
+creditPath = 'sources/credit_card.csv'
 
 app = Flask(__name__)
 
@@ -21,6 +22,8 @@ dfp = pd.read_excel(prdPath,sheet_name=0,engine='openpyxl')
 dfp = dfp.where(dfp.notnull(),None)
 dfa = pd.read_csv(acctPath)
 dfa = dfa.where(dfa.notnull(),None)
+dfc = pd.read_csv(creditPath)
+dfc = dfc.where(dfc.notnull(),None)
 
 class DATA_PRODUCT_MAPPING_LKP(db.Model):
     __tablename__ = 'DATA_PRODUCT_MAPPING_LKP'
@@ -55,6 +58,21 @@ class Acct_perf(db.Model):
     INSURANCE_FEE_INDICATOR = db.Column(db.String(5))
 
     PROD = db.relationship('DATA_PRODUCT_MAPPING_LKP', backref='ACCS')
+
+class Acct_Credit(db.Model):
+    __tablename__ = 'Acct_Credit'
+    ACCT_NUM = db.Column(db.Integer,primary_key=True)
+    PRD_CD = db.Column(db.Integer,db.ForeignKey('DATA_PRODUCT_MAPPING_LKP.PRD_CD'))
+    MTH_END_DT = db.Column(db.Date)
+    CREDIT_RISK_INDICATOR = db.Column(db.String(20))
+    DAY_PST_DUE = db.Column(db.Integer)
+    POSTAL_CD = db.Column(db.String(6))
+    OS_BAL_AMT = db.Column(db.DECIMAL)
+    PREMIUM = db.Column(db.String(5))
+    CRNT_AUTH_LIMIT_AMT = db.Column(db.DECIMAL)
+    TM_ON_BOOK = db.Column(db.Integer)
+
+    PROD = db.relationship('DATA_PRODUCT_MAPPING_LKP', backref='CCS')
 
 
 # add new product or update changed product
@@ -133,6 +151,42 @@ def updtacct(row):
                 record.INSURANCE_FEE_INDICATOR = row['premium']
                 db.session.commit()
 
+# add new credit card record or update changed record
+def updtcredit(row):
+    if row['acct_num']:
+        record = Acct_Credit.query.filter_by(ACCT_NUM=row['acct_num']).first()
+        if not record:
+            acct = Acct_Credit(
+                ACCT_NUM=row['acct_num'],
+                PRD_CD=row['product_code'],
+                MTH_END_DT=row['date'],
+                CREDIT_RISK_INDICATOR=row['cc_cri'],
+                DAY_PST_DUE=row['del_days'],
+                POSTAL_CD=row['postal'],
+                OS_BAL_AMT=row['balance'],
+                PREMIUM=row['premium'],
+                CRNT_AUTH_LIMIT_AMT=row['auth_limit'],
+                TM_ON_BOOK=row['tm_on_book_month']
+            )
+            db.session.add(acct)
+            db.session.commit()
+        else:
+            if row['product_code'] != record.PRD_CD or row['cc_cri'] != record.CREDIT_RISK_INDICATOR or row['tm_on_book_month'] != record.TM_ON_BOOK \
+                    or row['del_days'] != record.DAY_PST_DUE or row['auth_limit'] != record.CRNT_AUTH_LIMIT_AMT \
+                    or row['balance'] != record.OS_BAL_AMT or row['postal'] != record.POSTAL_CD \
+                    or row['date'] != record.MTH_END_DT.strftime('%Y-%m-%d') or row['premium'] != record.PREMIUM:
+                print('---------update acctnum: {} ---------'.format(row['acct_num']))
+                record.PRD_CD = row['product_code']
+                record.CREDIT_RISK_INDICATOR = row['cc_cri']
+                record.TM_ON_BOOK = row['tm_on_book_month']
+                record.DAY_PST_DUE = row['del_days']
+                record.CRNT_AUTH_LIMIT_AMT = row['auth_limit']
+                record.OS_BAL_AMT = row['balance']
+                record.POSTAL_CD = row['postal']
+                record.MTH_END_DT = row['date']
+                record.PREMIUM = row['premium']
+                db.session.commit()
+
 def readProduct(df):
     df.apply(updtprd,axis=1)
     print('------------------finished update products table-----------------')
@@ -140,6 +194,10 @@ def readProduct(df):
 def readCSV(df):
     df.apply(updtacct,axis=1)
     print('------------------finished update acct perf table-----------------')
+
+def readCredit(df):
+    df.apply(updtcredit,axis=1)
+    print('------------------finished update acct credit table-----------------')
 
 # inactive prd that not use anymore
 def removePrd(df):
@@ -160,5 +218,6 @@ if __name__ == '__main__':
     readProduct(dfp)
     removePrd(dfp)
     readCSV(dfa)
+    readCredit(dfc)
     print('endtime :', datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     # then create view VW_RESD_MTGE_OA_RISK in mysql instead of create table RESD_MTGE_OA_RISK
