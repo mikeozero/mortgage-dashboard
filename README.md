@@ -1,7 +1,7 @@
 # multi-dashboards
 **Automation dashboard using `echarts`+`python`+`mysql` (resposive web design)**  
-![image](https://user-images.githubusercontent.com/53555169/127710074-63f5ece4-54dc-47b7-bd05-cabdc09c4df9.png)
-![image](https://user-images.githubusercontent.com/53555169/127710117-2c363472-d0f9-4c5a-a464-0821de2cd7ee.png)
+![image](https://user-images.githubusercontent.com/53555169/127965555-e784255e-c3a4-404e-b7a3-1684e84d79f6.png)
+![image](https://user-images.githubusercontent.com/53555169/127965605-e7a97e42-cdca-4e8f-8f33-10bc4e4a49b8.png)
 
 **The source data ('mortgage.csv' and 'Data_Product Hierarchy.xlsx') in sources/**
 
