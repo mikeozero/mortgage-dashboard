@@ -1,5 +1,5 @@
 # multi-dashboards
-**Automation dashboard using `echarts`+`python`+`mysql` (resposive web design)**  
+**Automation dashboards using `echarts`+`python`+`mysql` (resposive web design)**  
 ![image](https://user-images.githubusercontent.com/53555169/127965555-e784255e-c3a4-404e-b7a3-1684e84d79f6.png)
 ![image](https://user-images.githubusercontent.com/53555169/127965605-e7a97e42-cdca-4e8f-8f33-10bc4e4a49b8.png)
 
