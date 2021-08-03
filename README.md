@@ -20,7 +20,6 @@
 
 **6. resposive web design:**  
 ![image](https://user-images.githubusercontent.com/53555169/122331722-45554600-cf03-11eb-8393-82c593c14e70.png)
-
-![image](https://user-images.githubusercontent.com/53555169/122331676-34a4d000-cf03-11eb-89e2-cac8bdca3961.png)
+![image](https://user-images.githubusercontent.com/53555169/127965877-a6797554-23c7-409b-9201-2e4e71617e38.png)
 
 **keywords:** `echarts`, `javascript`, `jquery`, `ajax`, `html`, `css`, `python`, `pandas`, `flask`, `sqlalchemy`, `mysql`, `postgresql`
